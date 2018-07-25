@@ -1,7 +1,6 @@
 import tushare as ts
 import pandas as pd
 from common.base import Base
-from sqlalchemy import create_engine
 class GetDataTransaction(object):
     def set_data(self):
         self.code = '600848'
