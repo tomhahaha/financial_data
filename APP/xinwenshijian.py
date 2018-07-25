@@ -27,8 +27,8 @@ class XinwenShijian(object):
             code：股票代码
             date：信息公布日期
         '''
-        notices=ts.get_notices('002337','2018-07-02')
-        self.base.batchwri(notices,'notices1s',self.financial_data)
+        notices=ts.get_notices()
+        self.base.batchwri(notices,'notices',self.financial_data)
 
         '''新浪股吧新闻'''
         guba_sina=ts.guba_sina()

@@ -53,9 +53,9 @@ class LonghuBang(object):
         # inst_tops=ts.inst_tops()
         # self.base.batchwri(inst_tops,'inst_tops',self.financial_data)
 
-        # '''机构成交明细'''
-        # inst_detail=ts.inst_detail()
-        # self.base.batchwri(inst_detail,'inst_detail',self.financial_data)
+        '''机构成交明细'''
+        inst_detail=ts.inst_detail()
+        self.base.batchwri(inst_detail,'inst_detail',self.financial_data)
 
 if __name__ == "__main__":
 

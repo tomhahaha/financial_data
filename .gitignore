@@ -7,10 +7,10 @@
 .settings
 __pycache__/
 *.py[cod]
-
+.conf
 # C extensions
 *.so
-
+test.config
 # Distribution / packaging
 .Python
 env/
