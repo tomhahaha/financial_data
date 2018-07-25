@@ -21,7 +21,7 @@ class Shibor(object):
 
         '''Shibor拆放利率'''
         shibor_data=ts.shibor_data(2015)
-        print(shibor_data)
+        print(shibor_data.shape)
         self.base.batchwri(shibor_data, 'shibor_data', self.financial_data)
 
         '''银行报价数据'''
@@ -53,6 +53,4 @@ if __name__ == "__main__":
     conns = {'financial_data': financial_data}
     shibor = Shibor()
     shibor(conns)
-
-
     financial_data.close()
