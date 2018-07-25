@@ -53,10 +53,13 @@ class Base():
 
     # 批量写入mysql，每次1000条
     def batchwri(self, res, table,conn):
-        print(res.shape)
-        total = res.shape[0]
-        nowrow = 0
-        while nowrow < total - 1000:
-            conn.write2mysql(res[nowrow:nowrow + 1000], table)
-            nowrow += 1000
-        conn.write2mysql(res[nowrow:], table)
+        if res==None:
+            pass
+        else:
+            print(res.shape)
+            total = res.shape[0]
+            nowrow = 0
+            while nowrow < total - 1000:
+                conn.write2mysql(res[nowrow:nowrow + 1000], table)
+                nowrow += 1000
+            conn.write2mysql(res[nowrow:], table)
