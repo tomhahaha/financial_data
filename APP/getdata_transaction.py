@@ -79,21 +79,193 @@ class GetDataTransaction(object):
         # self.df = ts.get_sina_dd('600848', date='2015-12-24', vol=500)  #指定大于等于500手的数据
         self.base.batchwri(self.df, 'dadanjiaoyi', self.financial_data)
 
+class GerDataTouzicankao(object):
+    def __init__(self):
+        #self.code = '002337'
+        self.df = pd.DataFrame()
+    def profit_data(self,conns,top):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.profit_data(top)
+        self.base.batchwri(self.df, 'fenpeiyuan', self.financial_data)
+    def forecast_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.forecast_data(year, quarter)
+        self.base.batchwri(self.df, 'yejibaobiao', self.financial_data)
+    def xsg_data(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.xsg_data()
+        self.base.batchwri(self.df, 'xianshougujiejin', self.financial_data)
+    def fund_holdings(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.fund_holdings(year, quarter)
+        self.base.batchwri(self.df, 'jijinchigu', self.financial_data)
+    def new_stocks(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.new_stocks()
+        self.base.batchwri(self.df, 'xingushuju', self.financial_data)
+    def sh_margins(self,conns,start,end):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.sh_margins(start, end)
+        self.base.batchwri(self.df, 'rongzirongquan_sh', self.financial_data)
+    def sz_margins(self,conns,start,end):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.sz_margins(start,end)
+        self.base.batchwri(self.df, 'rongzirongquan_sz', self.financial_data)
+
+class GetDataGupiaofenlei(object):
+    def __init__(self):
+        self.code = '002337'
+        self.df = pd.DataFrame()
+    def get_industry_classified(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_industry_classified()
+        self.base.batchwri(self.df, 'industry_classified', self.financial_data)
+    def get_concept_classified(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_concept_classified()
+        self.base.batchwri(self.df, 'concept_classified', self.financial_data)
+    def get_area_classified(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_area_classified()
+        self.base.batchwri(self.df, 'area_classified', self.financial_data)
+    def get_sme_classified(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_sme_classified()
+        self.base.batchwri(self.df, 'sme_classified', self.financial_data)
+    def get_gem_classified(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_gem_classified()
+        self.base.batchwri(self.df, 'gem_classified', self.financial_data)
+    def get_st_classified(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_st_classified()
+        self.base.batchwri(self.df, 'st_classified', self.financial_data)
+    def get_hs300s(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_hs300s()
+        self.base.batchwri(self.df, 'hs300s', self.financial_data)
+    def get_sz50s(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_sz50s()
+        self.base.batchwri(self.df, 'sz50s', self.financial_data)
+    def get_zz500s(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_zz500s()
+        self.base.batchwri(self.df, 'zz500s', self.financial_data)
+    def get_terminated(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_terminated()
+        self.base.batchwri(self.df, 'terminated', self.financial_data)
+    def get_suspended(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_suspended()
+        self.base.batchwri(self.df, 'suspended', self.financial_data)
+
+class GetDataJibenmian(object):
+    def __init__(self):
+        self.code = '002337'
+        self.df = pd.DataFrame()
+    def get_stock_basics(self,conns):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_stock_basics()
+        self.base.batchwri(self.df, 'stock_basics', self.financial_data)
+    def get_report_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_report_data(year,quarter)
+        self.base.batchwri(self.df, 'report_data', self.financial_data)
+    def get_profit_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_profit_data(year,quarter)
+        self.base.batchwri(self.df, 'profit_data', self.financial_data)
+    def get_operation_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_operation_data(year,quarter)
+        self.base.batchwri(self.df, 'operation_data', self.financial_data)
+    def get_growth_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_growth_data(year,quarter)
+        self.base.batchwri(self.df, 'growth_data', self.financial_data)
+    def get_debtpaying_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_debtpaying_data(year,quarter)
+        self.base.batchwri(self.df, 'debtpaying_data', self.financial_data)
+    def get_cashflow_data(self,conns,year,quarter):
+        self.base = Base()
+        self.financial_data = conns['financial_data']
+        self.df = ts.get_cashflow_data(year,quarter)
+        self.base.batchwri(self.df, 'cashflow_data', self.financial_data)
 
 if __name__ == "__main__":
 
     base = Base()
     financial_data = base.conn('financial_data')
     conns = {'financial_data': financial_data}
-    G = GetDataTransaction()
+    # G = GetDataTransaction()
+    # G.get_hist_data(conns)
+    # G.get_stock_basics(conns)
+    # G.get_today_all(conns)
+    # #G.get_tick_data(conns) #无数据
+    # G.get_realtime_quotes(conns)
+    # G.get_today_ticks(conns)
+    # G.get_index(conns)
+    # #G.get_sina_dd(conns) 不一定有数据
 
-    G.get_hist_data(conns)
+
+    # G=GerDataTouzicankao()
+    # #G.profit_data(conns,top=50) 报错
+    # G.forecast_data(conns,year=2018,quarter=1)
+    # G.xsg_data(conns)
+    # G.fund_holdings(conns,year=2018,quarter=1)
+    # G.new_stocks(conns)
+    # G.sh_margins(conns,start='2018-06-01',end='2018-07-01')
+    # G.sz_margins(conns,start='2018-06-01',end='2018-07-01')
+
+    # G = GetDataGupiaofenlei()
+    #G.get_industry_classified(conns)
+    ##G.get_concept_classified(conns)
+    # G.get_area_classified(conns)
+    # G.get_sme_classified(conns)
+    # G.get_gem_classified(conns)
+    # G.get_st_classified(conns)
+    ##G.get_hs300s(conns)  #表空
+    ##G.get_sz50s(conns)   #表空
+    ##G.get_zz500s(conns)  #表空
+    # G.get_terminated(conns)
+    # G.get_suspended(conns)
+
+    G = GetDataJibenmian()
+    y=2018
+    q=1
     G.get_stock_basics(conns)
-    G.get_today_all(conns)
-    #G.get_tick_data(conns)
-    G.get_realtime_quotes(conns)
-    G.get_today_ticks(conns)
-    G.get_index(conns)
-    #G.get_sina_dd(conns)
+    G.get_report_data(conns,y,q)
+    G.get_profit_data(conns,y,q)
+    G.get_operation_data(conns,y,q)
+    G.get_growth_data(conns,y,q)
+    G.get_debtpaying_data(conns,y,q)
+    G.get_cashflow_data(conns,y,q)
 
     financial_data.close()

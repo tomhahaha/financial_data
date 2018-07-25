@@ -4,12 +4,15 @@ import datetime
 import time
 import pandas as pd
 from common.DbCommon import mysql2pd
+import configparser
 
+conf = configparser.ConfigParser()
+conf.read("test.conf")
 
 class Base():
     def __init__(self):
         self.dbconfig = {
-            'financial_data':('123.59.214.229', '33333', 'financial_data', 'fin_data', 'fin_data'),
+            'financial_data':(conf.get('db_config','host'),conf.get('db_config','port'),conf.get('db_config','db'), conf.get('db_config','user'), conf.get('db_config','pwd')),
         }
 
     def conn(self,db):
