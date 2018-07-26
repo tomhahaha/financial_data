@@ -56,8 +56,8 @@ class Base():
 
     # 批量写入mysql，每次1000条
     def batchwri(self, res, table,conn):
-        if res==None:
-            print(table+' is None')
+        if res.empty:
+            print(table+' is empty!')
         else:
             print(res.shape)
             total = res.shape[0]
