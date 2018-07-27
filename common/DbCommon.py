@@ -10,15 +10,15 @@ from DBUtils.PooledDB import PooledDB
 import configparser
 
 conf = configparser.ConfigParser()
-conf.read("test.conf")
+conf.read("../common/test.conf")
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
-logfile = os.path.join(conf.get('path','log_path'))
-fh = logging.FileHandler(logfile, mode='a')
+fh = logging.FileHandler(conf.get('path','log_path'), mode='a')
 fh.setLevel(logging.DEBUG)
 formatter = logging.Formatter("%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s")
 fh.setFormatter(formatter)
 logger.addHandler(fh)
+print('这里是测试内容：{}'.format(conf.get('path','log_path')))
 
 class mysql2pd(object):
     def __init__(self, host, port, db, user, pwd, retry_num=3, env_lang='utf8'):

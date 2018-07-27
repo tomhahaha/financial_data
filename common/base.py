@@ -7,7 +7,8 @@ from common.DbCommon import mysql2pd
 import configparser
 
 conf = configparser.ConfigParser()
-conf.read("test.conf")
+conf.read("../common/test.conf")
+print(conf.options('path'))
 
 class Base():
     def __init__(self):
@@ -56,8 +57,8 @@ class Base():
 
     # 批量写入mysql，每次1000条
     def batchwri(self, res, table,conn):
-        if res.empty:
-            print(table+' is empty!')
+        if res==None:
+            print(table+' is None')
         else:
             print(res.shape)
             total = res.shape[0]
