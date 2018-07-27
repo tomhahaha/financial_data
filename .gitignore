@@ -73,7 +73,7 @@ target/
 tags
 *~
 
-*.conf
+common/
 requirements.txt
 
 
