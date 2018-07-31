@@ -56,6 +56,7 @@ class GeGuHangQing(object):
         self.base.batchwri(hangqing, 'stock_hangqing_date',self.finacial_data)
         self.base.batchwri(hangqing.iloc[:,0:2], 'stock_code_name', self.finacial_data)
 
+#测试，暂定每日股票收盘后更新一次
 if __name__ == '__main__':
     base = Base()
     financial_data = base.conn('financial_data')
