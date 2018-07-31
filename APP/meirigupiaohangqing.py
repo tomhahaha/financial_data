@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-from test.threading_test import ThreadFunc
+from common.threading_test import ThreadFunc
 from common.base_test import Base
 import tushare as ts
 import pandas as pd
