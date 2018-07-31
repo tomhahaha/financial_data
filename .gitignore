@@ -73,9 +73,10 @@ target/
 tags
 *~
 
-*.conf
-*.ini
+commom/test.conf
 base_test.py
 requirements.txt
 test/threading_test.py
+commom/threading_test.py
+
 
