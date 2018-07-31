@@ -124,7 +124,6 @@ if __name__ == '__main__':
     conns = {'financial_data': financial_data}
     meirihangqing = GeGuHangQing()
     meirihangqing(conns)
-    # meirihangqing.get_today_close(conns,'2018-07-27')
     financial_data.close()
 
 
