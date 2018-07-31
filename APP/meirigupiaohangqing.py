@@ -36,32 +36,6 @@ class GeGuHangQing(object):
         super(GeGuHangQing,self).__init__()
         self.close_res = []
 
-    #获取每日收盘价
-    def get_today_close(self, date, code_list):
-        fin = []
-        start = ctime()
-        print('strat: '+start)
-
-        for i in range(len(code_list)):
-            code_tj = code_list['code'][i]
-            #print(code_tj)
-            df = ts.get_k_data(code_tj, start=date, end=date, autype=None).reset_index(drop=True)
-            print(df)
-            if df.empty:
-                continue
-            code = df['code'][0]
-            #print(code)
-            close = df['close'][0]
-            #print(close)
-            fin.append([code, close])
-
-        res = pd.DataFrame(fin, columns=['code','close'])
-        print('End: '+ ctime() + ', start at' + start)
-        # print(res)
-        # self.base.batchwri(res, 'stock_close_20180727',self.finacial_data)
-        self.close_res.append(res)
-
-
     def __call__(self, conns, mul_t=4):
         '''
         抓取股票每日行情数据
@@ -118,7 +92,30 @@ class GeGuHangQing(object):
         # new_hangqing = pd.merge(hangqing_test, result, on='code', how='left')
         # print(new_hangqing)
 
-
+    # # 获取每日收盘价
+    # def get_today_close(self, date, code_list):
+    #     fin = []
+    #     start = ctime()
+    #     print('strat: ' + start)
+    #
+    #     for i in range(len(code_list)):
+    #         code_tj = code_list['code'][i]
+    #         # print(code_tj)
+    #         df = ts.get_k_data(code_tj, start=date, end=date, autype=None).reset_index(drop=True)
+    #         print(df)
+    #         if df.empty:
+    #             continue
+    #         code = df['code'][0]
+    #         # print(code)
+    #         close = df['close'][0]
+    #         # print(close)
+    #         fin.append([code, close])
+    #
+    #     res = pd.DataFrame(fin, columns=['code', 'close'])
+    #     print('End: ' + ctime() + ', start at' + start)
+    #     # print(res)
+    #     # self.base.batchwri(res, 'stock_close_20180727',self.finacial_data)
+    #     self.close_res.append(res)
 
 
 if __name__ == '__main__':
