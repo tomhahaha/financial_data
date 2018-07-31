@@ -73,7 +73,8 @@ target/
 tags
 *~
 
-common/
+*.conf
+*.ini
+base_test.py
 requirements.txt
-
 
