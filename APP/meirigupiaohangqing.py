@@ -79,38 +79,39 @@ class GeGuHangQing(object):
         hangqing = ts.get_today_all()
         today = self.base.gettoday()
         hangqing['date'] = today.replace('/','-')
+        hangqing.rename(columns={'trade': 'close'}, inplace=True)
 
         self.base.batchwri(hangqing, 'stock_hangqing_date',self.finacial_data)
         self.base.batchwri(hangqing.iloc[:,0:2], 'stock_code_name', self.finacial_data)
 
-        #多线程获取当日股票收盘价close
-        code_list = hangqing['code']
-        k = int(len(code_list) / mul_t)
-        code_t = []
-        for i in range(mul_t):
-            if i != (mul_t-1):
-                code = code_list[i*k:(i+1)*k].reset_index(drop=True)
-            else:
-                code = code_list[i*k:].reset_index(drop=True)
-            code_t.append(code)
-
-        start = ctime()
-        print('starting at: ', start)
-        #多线程
-        threads = []
-        for i in range(mul_t):
-            t = threading.Thread(target=ThreadFunc(self.get_today_close,
-                                                   ('2018-07-27', code_t[i]),
-                                                   self.get_today_close.__name__))
-            threads.append(t)
-        for i in range(mul_t):
-            threads[i].start()
-        for i in range(mul_t):
-            threads[i].join()
-        print('all DONE at: ', ctime(), '  start at: ', start)
-
-        result = pd.concat(self.close_res).reset_index(drop=True)
-        print(result)
+        # #多线程获取当日股票收盘价close
+        # code_list = hangqing['code']
+        # k = int(len(code_list) / mul_t)
+        # code_t = []
+        # for i in range(mul_t):
+        #     if i != (mul_t-1):
+        #         code = code_list[i*k:(i+1)*k].reset_index(drop=True)
+        #     else:
+        #         code = code_list[i*k:].reset_index(drop=True)
+        #     code_t.append(code)
+        #
+        # start = ctime()
+        # print('starting at: ', start)
+        # #多线程
+        # threads = []
+        # for i in range(mul_t):
+        #     t = threading.Thread(target=ThreadFunc(self.get_today_close,
+        #                                            ('2018-07-27', code_t[i]),
+        #                                            self.get_today_close.__name__))
+        #     threads.append(t)
+        # for i in range(mul_t):
+        #     threads[i].start()
+        # for i in range(mul_t):
+        #     threads[i].join()
+        # print('all DONE at: ', ctime(), '  start at: ', start)
+        #
+        # result = pd.concat(self.close_res).reset_index(drop=True)
+        # print(result)
 
         # #合并每日行情与收盘价
         # hangqing_test = self.finacial_data.getdata('stock_hangqing_date')
