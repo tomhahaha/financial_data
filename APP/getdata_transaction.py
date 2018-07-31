@@ -4,7 +4,7 @@ from common.base import Base
 
 class GetDataTransaction(object):
     def __init__(self):
-        self.code = '002337'
+        self.code = '000001'
         self.start = '2018-07-01'
         self.end = '2018-07-25'
         self.df=pd.DataFrame()
@@ -30,9 +30,10 @@ class GetDataTransaction(object):
         # ts.get_h_data('002337', autype='hfq')  # 后复权
         # ts.get_h_data('002337', autype=None)  # 不复权
         self.df = ts.get_h_data(self.code,self.start,self.end)  # 两个日期之间的前复权数据
+        #self.df = ts.get_k_data('000001', index=True, ktype='W', autype='hfq')
         #
         # ts.get_h_data('399106', index=True)  # 深圳综合指数
-        self.base.batchwri(self.df, 'fuquan_data', self.financial_data)
+        self.base.batchwri(self.df,  'fuquan_data', self.financial_data)
     #实时行情::一次性获取当前交易所有股票的行情数据（如果是节假日，即为上一交易日，结果显示速度取决于网速）
     def get_today_all(self, conns):
         self.base = Base()
