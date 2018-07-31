@@ -77,4 +77,5 @@ tags
 *.ini
 base_test.py
 requirements.txt
+test/threading_test.py
 
