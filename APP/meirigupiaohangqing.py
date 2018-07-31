@@ -51,6 +51,7 @@ class GeGuHangQing(object):
         hangqing['date'] = today.replace('/','-')
         #股市收盘后，trade现价就是股票的收盘价。
         hangqing.rename(columns={'trade': 'close'}, inplace=True)
+        # print(hangqing[:100])
 
         self.base.batchwri(hangqing, 'stock_hangqing_date',self.finacial_data)
         self.base.batchwri(hangqing.iloc[:,0:2], 'stock_code_name', self.finacial_data)
