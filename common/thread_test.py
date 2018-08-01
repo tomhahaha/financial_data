@@ -1,7 +1,5 @@
 #-*- coding: utf-8 -*-
 
-import threading
-from time import ctime
 import logging.config
 import configparser
 
@@ -31,6 +29,7 @@ class ThreadFunc(threading.Thread):
         self.name = name
         self.func = func
         self.args = args
+        self.res = None
 
     def getResult(self):
         return self.res
@@ -39,14 +38,14 @@ class ThreadFunc(threading.Thread):
         self.res = self.func(*self.args)
 
 #测试
-def main(func, clsj, *args, mul_t=4):
+def exce_threads(func, clsj, *args, mul_t=4):
     '''
     测试多线程处理
     :param func: 多线程运行函数
     :param mul_t: 线程数量
-    :param clsj: 多线程处理的数据，列表类型
+    :param clsj: 多线程要处理数据，列表类型
     :param args: 函数其余条件
-    :return: 返回dataframe格式
+    :return: 整合多线程处理后的数据，返回dataframe格式
     '''
 
     # 将处理数据按线程数量均分
@@ -70,7 +69,7 @@ def main(func, clsj, *args, mul_t=4):
     threads = []
     try:
         for i in range(mul_t):
-            t = ThreadFunc(func, (clsj, *args), func.__name__)
+            t = ThreadFunc(func, (sj_list[i], *args), func.__name__)
             threads.append(t)
         for i in range(mul_t):
             threads[i].start()
@@ -82,16 +81,20 @@ def main(func, clsj, *args, mul_t=4):
         raise e
     print('all DONE at: ', ctime(), '  start at: ', start)
 
+    #将线程处理后的数据整合
+    res = []
     for t in threads:
-        print(t.getResult())
+        res.append(t.getResult())
+    result = pd.concat(res).reset_index(drop=True)
+    print(result)
 
-
-def get_today_close(date, code_list):
+#设置测试的func
+def get_today_close(code_list, date):
 
     fin = []
     #print(code_list)
-    # start = ctime()
-    # print('strat: '+start)
+    start = ctime()
+    print('Thread strat: '+start)
 
     for i in range(len(code_list)):
     # for i in range(0,10):
@@ -108,7 +111,7 @@ def get_today_close(date, code_list):
         fin.append([code, close])
 
     res = pd.DataFrame(fin, columns=['code','close'])
-    # print('End: '+ ctime() + ', start at' + start)
+    print('Thread End: '+ ctime() + ', start at' + start)
     return res
 
 if __name__ == "__main__":
@@ -116,5 +119,5 @@ if __name__ == "__main__":
     financial_data = base.conn('financial_data')
     conns = {'financial_data': financial_data}
     cnx = conns['financial_data']
-    code_list = cnx.getdata('stock_code_name', ['code'])[0:1000]
-    main(get_today_close, code_list, '2018-07-27')
+    code_list = cnx.getdata('stock_code_name', ['code'])[0:100]
+    exce_threads(get_today_close, code_list, '2018-07-27')
