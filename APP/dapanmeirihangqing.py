@@ -42,14 +42,14 @@ class DaPanHangQing(object):
         #大盘指数每日行情数据
         self.base.batchwri(hangqing, 'dapan_hangqing_date', self.finacial_data)
         #大盘代码-名字对照表
-        self.base.batchwri(hangqing[['code','name']], 'dapan_code_name_test', self.finacial_data)
+        self.base.batchwri(hangqing[['code','name']], 'dapan_code_name', self.finacial_data)
 
         #大盘代码-名字对照表去重
-        duizhao = self.finacial_data.getdata('dapan_code_name_test')
+        duizhao = self.finacial_data.getdata('dapan_code_name')
         duizhao.duplicated()
         duizhao.sort_index(by='code')
         self.finacial_data.dopost('TRUNCATE TABLE dapan_code_name')
-        self.base.batchwri(hangqing[['code','name']], 'dapan_code_name_test', self.finacial_data)
+        self.base.batchwri(hangqing[['code','name']], 'dapan_code_name', self.finacial_data)
 
 
 
