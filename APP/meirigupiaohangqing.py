@@ -42,8 +42,8 @@ class GeGuHangQing(object):
         self.base = Base()
         self.finacial_data = conns['financial_data']
 
-        self.finacial_data.dopost('TRUNCATE TABLE stock_hangqing_date')
-        self.finacial_data.dopost('TRUNCATE TABLE stock_code_name')
+        # self.finacial_data.dopost('TRUNCATE TABLE stock_hangqing_date')
+        # self.finacial_data.dopost('TRUNCATE TABLE stock_code_name')
 
         #在股市收盘后，获取股票当日行情
         hangqing = ts.get_today_all()
@@ -51,10 +51,20 @@ class GeGuHangQing(object):
         hangqing['date'] = today.replace('/','-')
         #股市收盘后，trade现价就是股票的收盘价。
         hangqing.rename(columns={'trade': 'close'}, inplace=True)
-        # print(hangqing[:100])
+        #去重
+        hangqing_qc = hangqing.drop_duplicates().sort_values(by='code').reset_index(drop=True)
+        # print(hangqing_qc)
+        self.base.batchwri(hangqing_qc, 'stock_hangqing_date',self.finacial_data)
+        self.base.batchwri(hangqing_qc[['code','name']], 'stock_code_name', self.finacial_data)
 
-        self.base.batchwri(hangqing, 'stock_hangqing_date',self.finacial_data)
-        self.base.batchwri(hangqing.iloc[:,0:2], 'stock_code_name', self.finacial_data)
+        #股票代码-名称对照表去重
+        duizhao = self.finacial_data.getdata('stock_code_name')
+        print(duizhao.size)
+        duizhao_qc = duizhao.drop_duplicates().sort_values(by='code').reset_index(drop=True)
+        # print(df)
+        self.finacial_data.dopost('TRUNCATE TABLE stock_code_name')
+        self.base.batchwri(duizhao_qc, 'stock_code_name', self.finacial_data)
+
 
 #测试，暂定每日股票收盘后更新一次
 if __name__ == '__main__':
