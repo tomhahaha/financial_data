@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f5680939-882f-4e47-9c5e-9e72a9880e02" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP/meirigupiaohangqing.py" beforeDir="false" afterPath="$PROJECT_DIR$/APP/meirigupiaohangqing.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/APP/dapanmeirihangqing.py" beforeDir="false" afterPath="$PROJECT_DIR$/APP/dapanmeirihangqing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,7 +15,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/financial_data$threading_test.coverage" NAME="threading_test Coverage Results" MODIFIED="1532942498354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/financial_data$DbCommon.coverage" NAME="DbCommon Coverage Results" MODIFIED="1532661438143" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
-    <SUITE FILE_PATH="coverage/financial_data$dapanmeirihangqing.coverage" NAME="dapanmeirihangqing Coverage Results" MODIFIED="1533091559271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/APP" />
+    <SUITE FILE_PATH="coverage/financial_data$dapanmeirihangqing.coverage" NAME="dapanmeirihangqing Coverage Results" MODIFIED="1533104732250" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/APP" />
     <SUITE FILE_PATH="coverage/financial_data$base_test.coverage" NAME="base_test Coverage Results" MODIFIED="1532661451462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
     <SUITE FILE_PATH="coverage/financial_data$meirigupiaohangqing.coverage" NAME="meirigupiaohangqing Coverage Results" MODIFIED="1533102981290" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/APP" />
     <SUITE FILE_PATH="coverage/financial_data$threading_test__1_.coverage" NAME="threading_test (1) Coverage Results" MODIFIED="1533024657322" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/common" />
@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="meirigupiaohangqing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="meirigupiaohangqing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APP/meirigupiaohangqing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="65" column="55" lean-forward="true" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+            <state relative-caret-position="148">
+              <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
               <folding>
                 <element signature="e#24#57#0" expanded="true" />
               </folding>
@@ -37,11 +37,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dapanmeirihangqing.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="dapanmeirihangqing.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/APP/dapanmeirihangqing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-594">
-              <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+            <state relative-caret-position="125">
+              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+              <folding>
+                <element signature="e#25#53#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -96,8 +99,8 @@
         <option value="$PROJECT_DIR$/common/base_test.py" />
         <option value="$PROJECT_DIR$/common/thread_test.py" />
         <option value="$PROJECT_DIR$/common/test.conf" />
-        <option value="$PROJECT_DIR$/APP/dapanmeirihangqing.py" />
         <option value="$PROJECT_DIR$/APP/meirigupiaohangqing.py" />
+        <option value="$PROJECT_DIR$/APP/dapanmeirihangqing.py" />
       </list>
     </option>
   </component>
@@ -162,7 +165,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.meirigupiaohangqing">
+  <component name="RunManager" selected="Python.dapanmeirihangqing">
     <configuration name="DbCommon" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="financial_data" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -547,7 +550,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533091644986</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="新增股票指数代码-名称对照表去重功能。原始数据存在重复问题，增加去重代码">
+      <created>1533104076673</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1533104076673</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -620,7 +630,8 @@
     <MESSAGE value="增加股票每日行情表，暂定在股票收盘后每日更新一次" />
     <MESSAGE value="修改" />
     <MESSAGE value="新增大盘指数代码-名称对照表去重功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增大盘指数代码-名称对照表去重功能" />
+    <MESSAGE value="新增股票指数代码-名称对照表去重功能。原始数据存在重复问题，增加去重代码" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增股票指数代码-名称对照表去重功能。原始数据存在重复问题，增加去重代码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -892,19 +903,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APP/dapanmeirihangqing.py">
+    <entry file="file://$PROJECT_DIR$/APP/meirigupiaohangqing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
+        <state relative-caret-position="148">
+          <caret line="63" column="19" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+          <folding>
+            <element signature="e#24#57#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/APP/meirigupiaohangqing.py">
+    <entry file="file://$PROJECT_DIR$/APP/dapanmeirihangqing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="65" column="55" lean-forward="true" selection-start-line="65" selection-start-column="55" selection-end-line="65" selection-end-column="55" />
+        <state relative-caret-position="125">
+          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
           <folding>
-            <element signature="e#24#57#0" expanded="true" />
+            <element signature="e#25#53#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,7 +2,6 @@
 
 from common.base import Base
 import tushare as ts
-import pandas as pd
 
 '''
    大盘指数每日行情数据:
@@ -32,8 +31,9 @@ class DaPanHangQing(object):
         self.base = Base()
         self.finacial_data = conns['financial_data']
 
-        #self.finacial_data.dopost('TRUNCATE TABLE dapan_hangqing_date')
-        #self.finacial_data.dopost('TRUNCATE TABLE dapan_code_name')
+        #清空表
+        # self.finacial_data.dopost('TRUNCATE TABLE dapan_hangqing_date')
+        # self.finacial_data.dopost('TRUNCATE TABLE dapan_code_name')
 
         # 实时行情
         hangqing = ts.get_index()
@@ -46,12 +46,11 @@ class DaPanHangQing(object):
 
         #大盘代码-名字对照表去重
         duizhao = self.finacial_data.getdata('dapan_code_name')
-        duizhao.duplicated()
-        duizhao.sort_index(by='code')
+        # print(duizhao.size)
+        duizhao_qc = duizhao.drop_duplicates().sort_values(by='code').reset_index(drop=True)
+        # print(df)
         self.finacial_data.dopost('TRUNCATE TABLE dapan_code_name')
-        self.base.batchwri(hangqing[['code','name']], 'dapan_code_name', self.finacial_data)
-
-
+        self.base.batchwri(duizhao_qc, 'dapan_code_name', self.finacial_data)
 
 if __name__ == '__main__':
     base = Base()
