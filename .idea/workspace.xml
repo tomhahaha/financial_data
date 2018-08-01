@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5680939-882f-4e47-9c5e-9e72a9880e02" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/APP/dapanmeirihangqing.py" beforeDir="false" afterPath="$PROJECT_DIR$/APP/dapanmeirihangqing.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -37,14 +37,23 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dapanmeirihangqing.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dapanmeirihangqing.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/APP/dapanmeirihangqing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+            <state relative-caret-position="187">
+              <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding>
                 <element signature="e#25#53#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.conf" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/common/test.conf">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -94,13 +103,13 @@
         <option value="$PROJECT_DIR$/test/threading_test.py" />
         <option value="$PROJECT_DIR$/test/stock_date_test.py" />
         <option value="$PROJECT_DIR$/common/base.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/common/threading_test.py" />
         <option value="$PROJECT_DIR$/common/base_test.py" />
         <option value="$PROJECT_DIR$/common/thread_test.py" />
         <option value="$PROJECT_DIR$/common/test.conf" />
         <option value="$PROJECT_DIR$/APP/meirigupiaohangqing.py" />
         <option value="$PROJECT_DIR$/APP/dapanmeirihangqing.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -557,7 +566,14 @@
       <option name="project" value="LOCAL" />
       <updated>1533104076673</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="新增大盘指数代码-名称对照表去重功能。">
+      <created>1533104855522</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1533104855522</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -571,13 +587,13 @@
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32874355" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24095395" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24095395" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" sideWeight="0.4975329" visible="true" weight="0.39931154" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4975329" visible="true" weight="0.39931154" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -631,7 +647,8 @@
     <MESSAGE value="修改" />
     <MESSAGE value="新增大盘指数代码-名称对照表去重功能" />
     <MESSAGE value="新增股票指数代码-名称对照表去重功能。原始数据存在重复问题，增加去重代码" />
-    <option name="LAST_COMMIT_MESSAGE" value="新增股票指数代码-名称对照表去重功能。原始数据存在重复问题，增加去重代码" />
+    <MESSAGE value="新增大盘指数代码-名称对照表去重功能。" />
+    <option name="LAST_COMMIT_MESSAGE" value="新增大盘指数代码-名称对照表去重功能。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -851,20 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/test.conf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="78" column="20" selection-start-line="78" selection-start-column="20" selection-end-line="78" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/APP/getdata_transaction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-291" />
@@ -915,11 +918,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/APP/dapanmeirihangqing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="38" column="36" selection-start-line="38" selection-start-column="36" selection-end-line="38" selection-end-column="36" />
+        <state relative-caret-position="187">
+          <caret line="11" column="26" lean-forward="true" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
           <folding>
             <element signature="e#25#53#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="9" lean-forward="true" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/test.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
         </state>
       </provider>
     </entry>
