@@ -1,6 +1,6 @@
 #-*- coding: utf-8 -*-
 
-from common.base_test import Base
+from common.base import Base
 import tushare as ts
 import time
 import traceback
