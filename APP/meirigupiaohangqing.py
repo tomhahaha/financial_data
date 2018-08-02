@@ -1,7 +1,21 @@
 #-*- coding: utf-8 -*-
 
-from common.base import Base
+from common.base_test import Base
 import tushare as ts
+import time
+import traceback
+import logging.config
+import configparser
+
+conf = configparser.ConfigParser()
+conf.read("../common/test.conf")
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+fh = logging.FileHandler(conf.get('path','log_path'), mode='a')
+fh.setLevel(logging.DEBUG)
+formatter = logging.Formatter("%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s")
+fh.setFormatter(formatter)
+logger.addHandler(fh)
 
 '''
    股票每日行情数据:
@@ -32,13 +46,14 @@ class GeGuHangQing(object):
         super(GeGuHangQing,self).__init__()
         self.close_res = []
 
-    def __call__(self, conns, mul_t=4):
+    def __call__(self, conns, retry_num=3):
         '''
         抓取股票每日行情数据
         :param conns: 数据库连接
-        :param mul_t: 线程数量
+        :param retry_num: 重新获取数据的次数
         :return: 数据存储在数据库
         '''
+        global hangqing
         self.base = Base()
         self.finacial_data = conns['financial_data']
 
@@ -46,7 +61,17 @@ class GeGuHangQing(object):
         # self.finacial_data.dopost('TRUNCATE TABLE stock_code_name')
 
         #在股市收盘后，获取股票当日行情
-        hangqing = ts.get_today_all()
+        #出现"urllib.error.HTTPError: HTTP Error 456"的问题
+        for i in range(retry_num+1):
+            try:
+                hangqing = ts.get_today_all()
+                break
+            except Exception as e:
+                logger.warning('Retry get today stock data , the [%d] times, err %s' % (i, e.message))
+                if i == retry_num:
+                    logger.warning(traceback.format_exc())
+                    raise e
+                time.sleep(300)
         today = self.base.gettoday()
         hangqing['date'] = today.replace('/','-')
         #股市收盘后，trade现价就是股票的收盘价。
